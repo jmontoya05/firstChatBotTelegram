@@ -7,12 +7,20 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.util.Map;
 
-import static es.codegym.telegrambot.TelegramBotContent.*;
+import static es.codegym.telegrambot.TelegramBotContent.FINAL_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_1_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_2_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_3_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_4_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_5_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_6_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_7_TEXT;
+import static es.codegym.telegrambot.TelegramBotContent.STEP_8_TEXT;
 
 public class MyFirstTelegramBot extends MultiSessionTelegramBot {
 
-    public static final String NAME = "jmontoyaBot";
-    public static final String TOKEN = "6351553874:AAHNQG4Vlh-aSoF2RlwzRD-b5ELVxdL9u_c";
+    public static final String NAME = System.getenv("USERNAME");
+    public static final String TOKEN = System.getenv("TOKEN");
 
     public MyFirstTelegramBot() {
         super(NAME, TOKEN);
@@ -21,13 +29,13 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
     @Override
     public void onUpdateEventReceived(Update update) {
         //TODO: Main operation here
-        if (getMessageText().equals("/start")){
+        if (getMessageText().equals("/start")) {
             setUserGlory(0);
             sendTextMessageAsync(STEP_1_TEXT,
                     Map.of("Romper la nevera", "step_1_btn"));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_1_btn")){
+        if (getCallbackQueryButtonKey().equals("step_1_btn")) {
             setUserGlory(20);
             sendTextMessageAsync(STEP_2_TEXT,
                     Map.of(
@@ -37,7 +45,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_2_btn")){
+        if (getCallbackQueryButtonKey().equals("step_2_btn")) {
             setUserGlory(20);
             sendTextMessageAsync(STEP_3_TEXT,
                     Map.of(
@@ -45,7 +53,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_3_btn")){
+        if (getCallbackQueryButtonKey().equals("step_3_btn")) {
             setUserGlory(30);
             sendTextMessageAsync(STEP_4_TEXT,
                     Map.of(
@@ -55,7 +63,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_4_btn")){
+        if (getCallbackQueryButtonKey().equals("step_4_btn")) {
             setUserGlory(30);
             sendTextMessageAsync(STEP_5_TEXT,
                     Map.of(
@@ -63,7 +71,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_5_btn")){
+        if (getCallbackQueryButtonKey().equals("step_5_btn")) {
             setUserGlory(40);
             sendTextMessageAsync(STEP_6_TEXT,
                     Map.of(
@@ -73,7 +81,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_6_btn")){
+        if (getCallbackQueryButtonKey().equals("step_6_btn")) {
             setUserGlory(40);
             sendTextMessageAsync(STEP_7_TEXT,
                     Map.of(
@@ -81,7 +89,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_7_btn")){
+        if (getCallbackQueryButtonKey().equals("step_7_btn")) {
             setUserGlory(50);
             sendTextMessageAsync(STEP_8_TEXT,
                     Map.of(
@@ -89,7 +97,7 @@ public class MyFirstTelegramBot extends MultiSessionTelegramBot {
                     ));
         }
 
-        if (getCallbackQueryButtonKey().equals("step_8_btn")){
+        if (getCallbackQueryButtonKey().equals("step_8_btn")) {
             setUserGlory(50);
             sendTextMessageAsync(FINAL_TEXT);
         }
